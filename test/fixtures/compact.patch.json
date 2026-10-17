@@ -1,0 +1,64 @@
+{
+  "wire_ops": [
+    {
+      "op": "set_tool_description",
+      "tool": "list_issues",
+      "value": "Filter issues by structured fields (status, assignee). Does not search text; to find issues by topic or keyword, use search_issues.",
+      "finding_ids": [
+        "F1"
+      ]
+    },
+    {
+      "op": "set_tool_description",
+      "tool": "search_issues",
+      "value": "Full-text search over issue titles and bodies. Use when the user describes issues by topic or keyword. To filter by status or assignee, use list_issues.",
+      "finding_ids": [
+        "F1"
+      ]
+    },
+    {
+      "op": "set_param_description",
+      "tool": "list_issues",
+      "param": "status",
+      "value": "One of: open, in_progress, blocked, closed. open: not started. in_progress: someone is actively working on it. blocked: waiting on something. closed: done.",
+      "finding_ids": [
+        "F2"
+      ]
+    },
+    {
+      "op": "set_param_description",
+      "tool": "list_issues",
+      "param": "include_comments",
+      "value": "Include full comment threads, roughly 1 to 2K tokens per issue. Defaults to true. Set false when only titles and status are needed.",
+      "finding_ids": [
+        "F3"
+      ]
+    }
+  ],
+  "source_edits": [
+    {
+      "file": "src/tools.ts",
+      "find": "  description: \"List issues.\",",
+      "replace": "  description: \"Filter issues by structured fields (status, assignee). Does not search text; to find issues by topic or keyword, use search_issues.\","
+    },
+    {
+      "file": "src/tools.ts",
+      "find": "  description: \"Search issues.\",",
+      "replace": "  description: \"Full-text search over issue titles and bodies. Use when the user describes issues by topic or keyword. To filter by status or assignee, use list_issues.\","
+    },
+    {
+      "file": "src/tools.ts",
+      "find": "    status: z.string().optional(),",
+      "replace": "    status: z.string().optional().describe(\"One of: open, in_progress, blocked, closed. open: not started. in_progress: someone is actively working on it. blocked: waiting on something. closed: done.\"),"
+    },
+    {
+      "file": "src/tools.ts",
+      "find": "{\n  name: \"list_issues\",\n  description: \"Filter issues by structured fields (status, assignee). Does not search text; to find issues by topic or keyword, use search_issues.\",\n  params: {\n    status: z.string().optional().describe(\"One of: open, in_progress, blocked, closed. open: not started. in_progress: someone is actively working on it. blocked: waiting on something. closed: done.\"),\n    assignee: z.string().optional(),\n    include_comments: z.boolean().optional(),\n    limit: z.number().optional(),\n  },\n}",
+      "replace": "{\n  name: \"list_issues\",\n  description: \"Filter issues by structured fields (status, assignee). Does not search text; to find issues by topic or keyword, use search_issues.\",\n  params: {\n    status: z.string().optional().describe(\"One of: open, in_progress, blocked, closed. open: not started. in_progress: someone is actively working on it. blocked: waiting on something. closed: done.\"),\n    assignee: z.string().optional(),\n    include_comments: z.boolean().optional().describe(\"Include full comment threads, roughly 1 to 2K tokens per issue. Defaults to true. Set false when only titles and status are needed.\"),\n    limit: z.number().optional(),\n  },\n}"
+    }
+  ],
+  "base_source_hashes": {
+    "src/tools.ts": "sha256:b666a8823e062edb2e3885f85fbe6f9fb1031745a45518365d6018e1571b84f9",
+    "src/validation.ts": "sha256:cf485c948165fd19dba87e85f515c786211eefb5481f6e8bc97d9f83e2eae188"
+  }
+}
