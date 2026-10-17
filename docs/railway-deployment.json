@@ -10,5 +10,11 @@
     "no_parameter_descriptions": true,
     "control_read": true,
     "invalid_status_error": true
+  },
+  "additional_rollout": {
+    "revision": "67ddb277edbb93ebfea71eda9a89bc56936cc016",
+    "first_verified_at": "2026-10-17T19:40:58.238Z",
+    "verification_wait_ms": 89851,
+    "timing_basis": "Post-push verifier start to successful expected-revision MCP checks; excludes git push duration."
   }
 }
