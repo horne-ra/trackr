@@ -105,7 +105,7 @@ export async function verifyFidelity(patchPath: string): Promise<void> {
         const base = baseline.find(tool => tool.name === op.tool)!;
         const required = tool.inputSchema.required ?? [];
         assert.deepEqual(required, base.inputSchema.required ?? [], "Parameter requiredness changed");
-        console.log(`EMITTED ${op.tool}.${op.param}: ${JSON.stringify({ schema: tool.inputSchema.properties?.[op.param!], required })}`);
+        console.log(`EMITTED ${op.tool}.${op.param}: ${JSON.stringify({ schema: tool.inputSchema.properties?.[op.param!], required_present: Object.hasOwn(tool.inputSchema, "required"), required: tool.inputSchema.required })}`);
       }
     }
     console.log("PASS source fidelity: real mcp-use tools/list equals baseline plus wire_ops; all non-description metadata unchanged");
