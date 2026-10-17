@@ -1,0 +1,14 @@
+{
+  "url": "https://trackr-production-e1a6.up.railway.app/mcp",
+  "expected_revision": "0761d60e0c2782610333c51ae957030e06126e95",
+  "server_version": "trackr-demo-001@0761d60e0c2782610333c51ae957030e06126e95",
+  "first_verified_at": "2026-10-17T19:38:58.120Z",
+  "elapsed_ms": 38809,
+  "checks": {
+    "revision_matches": true,
+    "baseline_descriptions_exact": true,
+    "no_parameter_descriptions": true,
+    "control_read": true,
+    "invalid_status_error": true
+  }
+}
