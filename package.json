@@ -16,14 +16,14 @@
   },
   "dependencies": {
     "mcp-use": "2.10.0",
-    "zod": "4.6.7"
+    "zod": "4.6.7",
+    "tsx": "4.23.15"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "0.135.0",
     "@modelcontextprotocol/sdk": "1.32.1",
     "@types/node": "26.6.5",
     "typescript": "7.0.2",
-    "tsx": "4.23.15",
     "vitest": "4.1.12"
   }
 }
